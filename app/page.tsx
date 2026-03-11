@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "5218000000000"; // TODO: replace with real number
+const WHATSAPP_NUMBER = "5215564314241";
 const WHATSAPP_MSG = encodeURIComponent(
   "Hola, me interesa una cotización de control de plagas para mi cocina."
 );
 const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
-const PHONE = "+52 800 000 0000"; // TODO: replace
+const PHONE = "+52 55 6431 4241";
 
 /* ─── Reusable WhatsApp CTA ─── */
 function WhatsAppButton({ className = "" }: { className?: string }) {
@@ -144,8 +144,17 @@ function Services() {
 }
 
 /* ════════════════════════════════════════════════
-   3. PHOTOS — placeholder grid
+   3. PHOTOS — real work grid
    ════════════════════════════════════════════════ */
+const photos = [
+  { src: "/images/01_hero_fumigation.jpg", alt: "Tecnico de control de plagas en entrada de restaurante" },
+  { src: "/images/02_kitchen_service.jpg", alt: "Servicio de fumigacion dentro de cocina comercial" },
+  { src: "/images/03_team_exterior.jpg", alt: "Equipo de CocinaLimpia frente a unidad de servicio" },
+  { src: "/images/04_rodent_station.jpg", alt: "Instalacion de estacion de monitoreo de roedores" },
+  { src: "/images/05_inspection_clipboard.jpg", alt: "Inspeccion y reporte con chef de restaurante" },
+  { src: "/images/06_spray_action.jpg", alt: "Nebulizacion profesional en cocina comercial" },
+];
+
 function Photos() {
   return (
     <section className="py-20 bg-white">
@@ -158,24 +167,21 @@ function Photos() {
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          {photos.map((photo) => (
             <div
-              key={i}
-              className="aspect-[4/3] rounded-xl bg-[#F8F8FA] border-2 border-dashed border-gray-200 flex items-center justify-center text-[#142547]/30"
+              key={photo.src}
+              className="relative aspect-[4/3] rounded-xl overflow-hidden group"
             >
-              <div className="text-center">
-                <svg className="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                </svg>
-                <span className="text-sm">Foto {i}</span>
-              </div>
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover transition duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
             </div>
           ))}
         </div>
-
-        <p className="text-center text-sm text-[#142547]/40 mt-6">
-          Agrega fotos de tu equipo trabajando en cocinas reales
-        </p>
       </div>
     </section>
   );

@@ -31,9 +31,9 @@ export default function Navbar() {
         <Image
           src="/images/logo-cocinalimpia-bueno-horizontal.png"
           alt="CocinaLimpia.mx"
-          width={180}
-          height={54}
-          className="brightness-0 invert"
+          width={240}
+          height={72}
+          className={`brightness-0 invert transition-all duration-300 ${scrolled ? "scale-90 origin-left" : ""}`}
           priority
         />
 

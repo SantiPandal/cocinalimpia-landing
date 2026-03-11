@@ -52,9 +52,9 @@ function Hero() {
       <div className="relative mx-auto w-full max-w-6xl px-6 pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-xl">
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
-            Control de Plagas
+            Tu Cocina Limpia.
             <br />
-            <span className="text-[#25D366]">para Cocinas</span>
+            <span className="text-white/90">Garantizado.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-md">
             Fumigacion certificada COFEPRIS. Sin interrumpir tu operacion.
@@ -66,22 +66,23 @@ function Hero() {
         {/* Trust badges — pinned to bottom of hero */}
         <div className="absolute bottom-8 left-6 right-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-medium text-white/90">
           <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 shrink-0 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg className="h-5 w-5 shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             Certificados COFEPRIS
           </div>
           <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 shrink-0 text-[#25D366]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg className="h-5 w-5 shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             Respuesta en 24h
           </div>
           <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 shrink-0 text-[#FBBF24]" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            <svg className="h-5 w-5 shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            +200 cocinas protegidas
+            CDMX
           </div>
         </div>
       </div>
@@ -126,7 +127,7 @@ function Services() {
   return (
     <section id="servicios" className="bg-[#F8F8FA] py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] mb-3">
+        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#142547]/50 mb-3">
           Servicios
         </p>
         <h2 className="text-center text-3xl md:text-5xl font-bold mb-6">
@@ -155,125 +156,7 @@ function Services() {
   );
 }
 
-/* ════════════════════════════════════════════════
-   3. PHOTOS — featured layout (1 large + 4 small)
-   ════════════════════════════════════════════════ */
-const photos = [
-  { src: "/images/06_spray_action.jpg", alt: "Nebulizacion profesional en cocina comercial" },
-  { src: "/images/01_hero_fumigation.jpg", alt: "Tecnico de control de plagas en entrada de restaurante" },
-  { src: "/images/02_kitchen_service.jpg", alt: "Servicio de fumigacion dentro de cocina comercial" },
-  { src: "/images/05_inspection_clipboard.jpg", alt: "Inspeccion y reporte con chef de restaurante" },
-  { src: "/images/03_team_exterior.jpg", alt: "Equipo de CocinaLimpia frente a unidad de servicio" },
-];
-
-function Photos() {
-  return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] mb-3">
-          Galeria
-        </p>
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">
-          Nuestro Trabajo
-        </h2>
-
-        {/* Featured layout: 1 hero + 4 grid */}
-        <div className="grid md:grid-cols-2 gap-4">
-          {/* Large featured image */}
-          <div className="relative aspect-[4/3] md:aspect-auto md:row-span-2 rounded-2xl overflow-hidden group">
-            <Image
-              src={photos[0].src}
-              alt={photos[0].alt}
-              fill
-              className="object-cover transition duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          {/* 4 smaller images */}
-          <div className="grid grid-cols-2 gap-4">
-            {photos.slice(1).map((photo) => (
-              <div
-                key={photo.src}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ════════════════════════════════════════════════
-   4. REVIEWS
-   ════════════════════════════════════════════════ */
-const reviews = [
-  {
-    name: "Chef Roberto M.",
-    role: "Restaurante La Trattoria",
-    text: "Excelente servicio. Llegaron a tiempo, sin olores fuertes, y no tuvimos que cerrar la cocina. Totalmente recomendados.",
-    stars: 5,
-  },
-  {
-    name: "Maria Garcia",
-    role: "Hotel Boutique Centro",
-    text: "Llevamos 6 meses con su programa de mantenimiento y pasamos la inspeccion de COFEPRIS sin una sola observacion.",
-    stars: 5,
-  },
-  {
-    name: "Carlos Hernandez",
-    role: "Taqueria Los Compadres",
-    text: "Rapidos, profesionales y el precio es justo. El mejor servicio de fumigacion que hemos contratado.",
-    stars: 5,
-  },
-];
-
-function Reviews() {
-  return (
-    <section className="bg-[#142547] py-24 text-white">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] mb-3">
-          Testimonios
-        </p>
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">
-          Nuestros Clientes Hablan
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {reviews.map((r) => (
-            <div
-              key={r.name}
-              className="rounded-2xl bg-white/[0.08] p-10 border border-white/[0.08]"
-            >
-              <div className="flex gap-1 mb-5">
-                {Array.from({ length: r.stars }).map((_, i) => (
-                  <svg key={i} className="h-5 w-5 fill-[#FBBF24]" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-white/90 leading-relaxed mb-8 text-[17px]">
-                &ldquo;{r.text}&rdquo;
-              </p>
-              <div className="border-t border-white/10 pt-5">
-                <p className="font-bold text-lg">{r.name}</p>
-                <p className="text-sm text-white/50">{r.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+/* Photos and Reviews sections removed — will add back with real data */
 
 /* ════════════════════════════════════════════════
    5. WHY US — bigger icons, stronger presence
@@ -312,7 +195,7 @@ function WhyUs() {
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] mb-3">
+        <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#142547]/50 mb-3">
           Diferenciadores
         </p>
         <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">
@@ -355,7 +238,7 @@ function FinalCTA() {
         <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
           Tu Cocina Libre de Plagas
           <br />
-          <span className="text-[#25D366]">Empieza Hoy</span>
+          <span className="text-white/70">Empieza Hoy</span>
         </h2>
         <p className="text-xl text-white/80 mb-10 max-w-lg mx-auto">
           Cotiza sin compromiso. Respondemos en menos de 24 horas.
@@ -381,7 +264,7 @@ function FinalCTA() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            CDMX, Monterrey, Guadalajara y mas
+            CDMX — Roma, Condesa, Polanco, Del Valle, Coyoacan
           </div>
         </div>
       </div>
@@ -440,8 +323,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <Photos />
-      <Reviews />
+      {/* Photos and Reviews — add back when real data exists */}
       <WhyUs />
       <FinalCTA />
       <Footer />

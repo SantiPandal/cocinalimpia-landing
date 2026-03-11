@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Navbar from "./Navbar";
 
 const WHATSAPP_NUMBER = "5215564314241";
 const WHATSAPP_MSG = encodeURIComponent(
@@ -25,53 +26,55 @@ function WhatsAppButton({ className = "" }: { className?: string }) {
 }
 
 /* ════════════════════════════════════════════════
-   1. HERO
+   1. HERO — with van photo background
    ════════════════════════════════════════════════ */
 function Hero() {
   return (
-    <section className="relative bg-[#142547] text-white">
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%221%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]" />
+    <section className="relative min-h-[90vh] flex items-center text-white">
+      {/* Background image */}
+      <Image
+        src="/images/hero-van.png"
+        alt="Unidad CocinaLimpia.mx frente a restaurante con jacarandas"
+        fill
+        className="object-cover"
+        priority
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#142547]/90 via-[#142547]/70 to-[#142547]/30" />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-28 text-center">
-        <Image
-          src="/images/logo-cocinalimpia-bueno-horizontal.png"
-          alt="CocinaLimpia.mx"
-          width={400}
-          height={120}
-          className="mx-auto mb-8 brightness-0 invert"
-          priority
-        />
+      <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            Control de Plagas
+            <br />
+            <span className="text-[#25D366]">para Cocinas Comerciales</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
+            Fumigacion certificada COFEPRIS para restaurantes, hoteles y cocinas
+            industriales. Sin interrumpir tu operacion.
+          </p>
 
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-          Control de Plagas Profesional
-          <br />
-          <span className="text-[#25D366]">para Cocinas Comerciales</span>
-        </h1>
-        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-          Fumigacion certificada COFEPRIS para restaurantes, hoteles y cocinas
-          industriales. Sin interrumpir tu operacion.
-        </p>
+          <WhatsAppButton />
 
-        <WhatsAppButton />
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-white/60">
-          <div className="flex items-center gap-2">
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            Certificados COFEPRIS
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Respuesta en menos de 24h
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            +200 cocinas protegidas
+          <div className="mt-10 flex flex-wrap items-start gap-6 text-sm text-white/60">
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Certificados COFEPRIS
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Respuesta en menos de 24h
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              +200 cocinas protegidas
+            </div>
           </div>
         </div>
       </div>
@@ -394,6 +397,7 @@ function Footer() {
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
       <Services />
       <Photos />

@@ -6,9 +6,9 @@ export default function Navbar() {
       <Image
         src="/images/logo-fumigatucasa-horizontal.png"
         alt="FumigaTuCasa.com"
-        width={240}
-        height={72}
-        className="brightness-0 invert w-[160px] md:w-[240px] h-auto"
+        width={360}
+        height={108}
+        className="brightness-0 invert w-[220px] md:w-[360px] h-auto"
         priority
       />
     </div>

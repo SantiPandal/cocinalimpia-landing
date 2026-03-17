@@ -3,13 +3,13 @@ import Navbar from "./Navbar";
 
 const WHATSAPP_NUMBER = "5215564314241";
 const WHATSAPP_MSG = encodeURIComponent(
-  "Hola, me interesa una cotización de control de plagas para mi cocina."
+  "Hola, me interesa una cotizacion de fumigacion para mi casa."
 );
 const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 const PHONE = "+52 55 6431 4241";
 
 const WA_SVG = (
-  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+  <svg viewBox="0 0 24 24" className="h-5 w-5 md:h-6 md:w-6 fill-current shrink-0">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
@@ -21,8 +21,10 @@ function WhatsAppButton({ className = "", size = "lg" }: { className?: string; s
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-3 rounded-xl bg-[#25D366] font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:bg-[#1ebe5d] hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 ${
-        size === "xl" ? "px-10 py-5 text-xl" : "px-8 py-4 text-lg"
+      className={`inline-flex items-center justify-center gap-2.5 md:gap-3 rounded-xl bg-[#25D366] font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:bg-[#1ebe5d] hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-0.5 active:scale-[0.98] ${
+        size === "xl"
+          ? "w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-base md:text-xl"
+          : "px-6 md:px-8 py-3.5 md:py-4 text-base md:text-lg"
       } ${className}`}
     >
       {WA_SVG}
@@ -36,35 +38,33 @@ function WhatsAppButton({ className = "", size = "lg" }: { className?: string; s
    ════════════════════════════════════════════════ */
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center text-white overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col justify-center text-white overflow-hidden">
       <Image
-        src="/images/hero-van.png"
-        alt="Unidad CocinaLimpia.mx frente a restaurante con jacarandas"
+        src="/images/01_hero_fumigation.jpg"
+        alt="Fumigacion profesional residencial FumigaTuCasa.com"
         fill
         className="object-cover object-center"
         priority
       />
-      {/* Lighter gradient — let the photo breathe on the right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#142547]/85 via-[#142547]/55 to-transparent" />
-      {/* Bottom fade for trust badges */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#142547]/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#142547]/90 via-[#142547]/70 to-[#142547]/40 md:from-[#142547]/85 md:via-[#142547]/55 md:to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+      <div className="relative mx-auto w-full max-w-6xl px-5 md:px-6 pt-24 md:pt-40 pb-8 md:pb-28">
         <div className="max-w-xl">
-          <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
-            Tu Cocina Limpia.
+          <h1 className="text-4xl md:text-7xl font-bold leading-[1.1] mb-4 md:mb-6 tracking-tight">
+            Tu Casa Libre
             <br />
-            <span className="text-white/90">Garantizado.</span>
+            de Plagas.
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-md">
-            Fumigacion certificada COFEPRIS. Sin interrumpir tu operacion.
+          <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-10 leading-relaxed max-w-md">
+            Fumigacion residencial certificada COFEPRIS. Segura para tu familia y mascotas.
           </p>
 
           <WhatsAppButton size="xl" />
         </div>
+      </div>
 
-        {/* Trust badges — pinned to bottom of hero */}
-        <div className="absolute bottom-8 left-6 right-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-medium text-white/90">
+      <div className="relative md:absolute md:bottom-8 md:left-6 md:right-6 px-5 md:px-0 pb-6 md:pb-0">
+        <div className="flex flex-wrap items-center gap-x-6 md:gap-x-8 gap-y-2.5 text-sm font-medium text-white/90">
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -79,10 +79,9 @@ function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
-            CDMX
+            Casas y Departamentos
           </div>
         </div>
       </div>
@@ -91,62 +90,62 @@ function Hero() {
 }
 
 /* ════════════════════════════════════════════════
-   2. SERVICES — 3 cards with image backgrounds
+   2. SERVICES
    ════════════════════════════════════════════════ */
 const services = [
   {
     icon: (
-      <svg className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
       </svg>
     ),
-    title: "Fumigacion Profesional",
-    desc: "Eliminacion completa de cucarachas, moscas y plagas comunes. Productos seguros para areas de alimentos.",
+    title: "Fumigacion Residencial",
+    desc: "Eliminacion de cucarachas, hormigas, aranas y plagas comunes. Productos seguros para familias y mascotas.",
   },
   {
     icon: (
-      <svg className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
     title: "Control de Roedores",
-    desc: "Estaciones de monitoreo, trampas y sellado de accesos. Programa continuo de prevencion.",
+    desc: "Estaciones de monitoreo, trampas y sellado de accesos. Protege tu hogar de ratones y ratas.",
   },
   {
     icon: (
-      <svg className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
       </svg>
     ),
-    title: "Sanitizacion y Desinfeccion",
-    desc: "Nebulizacion profunda. Ideal antes de inspecciones COFEPRIS o auditorias sanitarias.",
+    title: "Sanitizacion de Espacios",
+    desc: "Nebulizacion profunda para eliminar bacterias y virus. Ideal para recamaras, cocinas y banos.",
   },
 ];
 
 function Services() {
   return (
-    <section id="servicios" className="bg-[#F8F8FA] py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="servicios" className="bg-[#F8F8FA] py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-5 md:px-6">
         <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#142547]/50 mb-3">
           Servicios
         </p>
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-6">
+        <h2 className="text-center text-2xl md:text-5xl font-bold mb-4 md:mb-6">
           Lo que Hacemos
         </h2>
-        <p className="text-center text-lg text-[#142547]/70 mb-16 max-w-lg mx-auto">
-          Soluciones especializadas para cocinas comerciales que cumplen con la normativa sanitaria.
+        <p className="text-center text-base md:text-lg text-[#142547]/70 mb-10 md:mb-16 max-w-lg mx-auto">
+          Soluciones de control de plagas disenadas para hogares. Seguras, efectivas y sin complicaciones.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 md:gap-6 md:grid-cols-3">
           {services.map((s) => (
             <div
               key={s.title}
-              className="rounded-2xl bg-white p-10 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="rounded-2xl bg-white p-6 md:p-10 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="mb-6 inline-flex items-center justify-center rounded-2xl bg-[#142547]/[0.07] p-4 text-[#142547]">
+              <div className="mb-4 md:mb-6 inline-flex items-center justify-center rounded-2xl bg-[#142547]/[0.07] p-3.5 md:p-4 text-[#142547]">
                 {s.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{s.title}</h3>
               <p className="text-[#142547]/70 leading-relaxed text-[15px]">{s.desc}</p>
             </div>
           ))}
@@ -156,60 +155,58 @@ function Services() {
   );
 }
 
-/* Photos and Reviews sections removed — will add back with real data */
-
 /* ════════════════════════════════════════════════
-   5. WHY US — bigger icons, stronger presence
+   3. WHY US
    ════════════════════════════════════════════════ */
 const whyUs = [
   {
     icon: (
-      <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
     title: "Certificados COFEPRIS",
-    desc: "Productos aprobados para uso en areas de preparacion de alimentos.",
+    desc: "Productos aprobados y seguros para uso en hogares con ninos y mascotas.",
   },
   {
     icon: (
-      <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Sin Cerrar Tu Cocina",
-    desc: "Trabajamos en horarios que no interrumpen tu operacion diaria.",
+    title: "Rapido y Sin Molestias",
+    desc: "Servicio en horarios flexibles. Tu familia puede regresar a casa el mismo dia.",
   },
   {
     icon: (
-      <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-8 w-8 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
       </svg>
     ),
     title: "Programa de Mantenimiento",
-    desc: "Visitas periodicas para prevencion continua. Siempre listo para auditorias.",
+    desc: "Visitas periodicas para que las plagas nunca regresen. Proteccion continua todo el ano.",
   },
 ];
 
 function WhyUs() {
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="mx-auto max-w-6xl px-5 md:px-6">
         <p className="text-center text-sm font-semibold uppercase tracking-widest text-[#142547]/50 mb-3">
           Diferenciadores
         </p>
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">
+        <h2 className="text-center text-2xl md:text-5xl font-bold mb-10 md:mb-16">
           Por Que Elegirnos
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-8 md:gap-10 md:grid-cols-3">
           {whyUs.map((item) => (
             <div key={item.title} className="text-center">
-              <div className="mx-auto mb-6 inline-flex items-center justify-center rounded-2xl bg-[#142547] p-5 text-white">
+              <div className="mx-auto mb-4 md:mb-6 inline-flex items-center justify-center rounded-2xl bg-[#142547] p-4 md:p-5 text-white">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-              <p className="text-[#142547]/70 leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{item.title}</h3>
+              <p className="text-[#142547]/70 leading-relaxed text-[15px]">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -219,12 +216,11 @@ function WhyUs() {
 }
 
 /* ════════════════════════════════════════════════
-   6. FINAL CTA — strong closer with background
+   4. FINAL CTA
    ════════════════════════════════════════════════ */
 function FinalCTA() {
   return (
-    <section className="relative py-28 overflow-hidden">
-      {/* Background with team photo */}
+    <section className="relative py-16 md:py-28 overflow-hidden">
       <Image
         src="/images/04_rodent_station.jpg"
         alt=""
@@ -234,24 +230,24 @@ function FinalCTA() {
       />
       <div className="absolute inset-0 bg-[#142547]/90" />
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center text-white">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-          Tu Cocina Libre de Plagas
+      <div className="relative mx-auto max-w-4xl px-5 md:px-6 text-center text-white">
+        <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight">
+          Tu Hogar Libre de Plagas
           <br />
           <span className="text-white/70">Empieza Hoy</span>
         </h2>
-        <p className="text-xl text-white/80 mb-10 max-w-lg mx-auto">
+        <p className="text-base md:text-xl text-white/80 mb-8 md:mb-10 max-w-lg mx-auto">
           Cotiza sin compromiso. Respondemos en menos de 24 horas.
         </p>
 
-        <WhatsAppButton size="xl" className="mb-10" />
+        <WhatsAppButton size="xl" className="mb-8 md:mb-10" />
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-white/70">
+        <div className="flex flex-col items-center justify-center gap-4 md:gap-8 text-white/70">
           <a
             href={`tel:${PHONE.replace(/\s/g, "")}`}
-            className="flex items-center gap-2 hover:text-white transition text-lg"
+            className="flex items-center gap-2 hover:text-white transition text-base md:text-lg"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
             </svg>
             {PHONE}
@@ -259,12 +255,12 @@ function FinalCTA() {
 
           <span className="hidden md:block text-white/30">|</span>
 
-          <div className="flex items-center gap-2 text-lg">
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="flex items-center gap-2 text-sm md:text-lg text-center">
+            <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            CDMX — Roma, Condesa, Polanco, Del Valle, Coyoacan
+            <span>CDMX — Roma, Condesa, Polanco, Del Valle, Coyoacan, Narvarte</span>
           </div>
         </div>
       </div>
@@ -281,10 +277,10 @@ function FloatingWhatsApp() {
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition-all hover:scale-110 animate-pulse hover:animate-none"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition-transform hover:scale-110 active:scale-95"
       aria-label="WhatsApp"
     >
-      <svg viewBox="0 0 24 24" className="h-8 w-8 fill-current">
+      <svg viewBox="0 0 24 24" className="h-7 w-7 md:h-8 md:w-8 fill-current">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
     </a>
@@ -296,17 +292,17 @@ function FloatingWhatsApp() {
    ════════════════════════════════════════════════ */
 function Footer() {
   return (
-    <footer className="bg-[#0e1b38] py-10 text-center text-sm text-white/50">
-      <div className="mx-auto max-w-6xl px-6">
+    <footer className="bg-[#0e1b38] py-8 md:py-10 text-center text-sm text-white/50">
+      <div className="mx-auto max-w-6xl px-5 md:px-6">
         <Image
-          src="/images/logo-cocinalimpia-bueno-horizontal.png"
-          alt="CocinaLimpia.mx"
+          src="/images/logo-fumigatucasa-horizontal.png"
+          alt="FumigaTuCasa.com"
           width={160}
           height={48}
-          className="mx-auto mb-4 brightness-0 invert opacity-60"
+          className="mx-auto mb-4 brightness-0 invert opacity-60 w-[120px] md:w-[160px] h-auto"
         />
         <p>
-          &copy; {new Date().getFullYear()} CocinaLimpia.mx — Todos los
+          &copy; {new Date().getFullYear()} FumigaTuCasa.com — Todos los
           derechos reservados.
         </p>
       </div>
@@ -319,11 +315,10 @@ function Footer() {
    ════════════════════════════════════════════════ */
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <Services />
-      {/* Photos and Reviews — add back when real data exists */}
       <WhyUs />
       <FinalCTA />
       <Footer />

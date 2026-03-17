@@ -5,16 +5,16 @@ import "./globals.css";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "CocinaLimpia.mx — Control de Plagas para Restaurantes",
+  title: "FumigaTuCasa.com — Control de Plagas Residencial en CDMX",
   description:
-    "Fumigación profesional y control de plagas para cocinas comerciales en México. Certificados COFEPRIS. Cotiza por WhatsApp.",
+    "Fumigacion profesional para casas y departamentos en CDMX. Certificados COFEPRIS. Cotiza por WhatsApp.",
   icons: {
-    icon: "/images/logo-cocinalimpia-bueno-favicon-32.png",
-    apple: "/images/logo-cocinalimpia-bueno-icon-180.png",
+    icon: "/images/logo-fumigatucasa-favicon-32.png",
+    apple: "/images/logo-fumigatucasa-icon-180.png",
   },
 };
 
